@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ArcaScanFlowApp</string>
+    <string name="amount">Ingrese monto</string>
 </resources>

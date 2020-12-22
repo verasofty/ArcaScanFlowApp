@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(), HALReaderCallback {
 
     private fun scanDevices() {
         Log.d(TAG, "== scanDevices() ==")
+        viewController.writeConsole(MainActivityVC.CODE_NORMAL, "scan!!")
         reader.scan(this, this)
     }
 
@@ -84,11 +85,13 @@ class MainActivity : AppCompatActivity(), HALReaderCallback {
     override fun onReaderDetected(readerDetected: String?) {
         Log.d(TAG, "== onReaderDetected() ==")
         this.readerDetected = readerDetected!!
+        viewController.writeConsole(MainActivityVC.CODE_NORMAL, "reader detected -> $readerDetected")
         reader.stop(this, this)
     }
 
     override fun onReaderConnected() {
         Log.d(TAG, "== onReaderConnected() ==")
+        viewController.writeConsole(MainActivityVC.CODE_NORMAL, "reader CONNECTED!!!")
         Toast.makeText(baseContext, "Reader is CONNECTED", Toast.LENGTH_LONG).show()
     }
 
